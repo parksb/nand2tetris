@@ -1,13 +1,13 @@
 TARGET=build
 
 test:
-	make link file=$(file) ext=asm && cd $(TARGET) && CPUEmulator.sh $(file).tst
+	make link ext=asm && cd $(TARGET) && CPUEmulator.sh Mult.tst
 
 link:
-	cd $(TARGET) && ln -sf ../$(file).$(ext)
+	cd $(TARGET) && ln -sf ../Mult.$(ext)
 
 link_all:
-	make link file=* ext=cmp && make link file=* ext=tst
+	make link ext=cmp && make link ext=tst
 
 clean:
 	rm $(TARGET)/*
